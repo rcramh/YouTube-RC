@@ -11,6 +11,9 @@
 /src/App.test.js
 /src/setupTests.js
 
+#env file
+.env
+/.env
 
 # testing
 /coverage
