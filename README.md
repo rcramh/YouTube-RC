@@ -1,4 +1,5 @@
 # Getting Started with Create React App
+![image](https://github.com/rcramh/YouTube-RC/assets/131397354/91f347ad-2c06-479d-a6b1-4eaf1e62505b)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
