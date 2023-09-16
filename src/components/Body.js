@@ -1,21 +1,51 @@
-import React from 'react'
+import React ,{useState, useEffect} from 'react'
 import VideoContainer from './VideoContainer'
+import { youtube_api } from '../utils/constants';
+import formatNumber from '../utils/viewsKMB';
+import youtubeDurationToUseful from '../utils/ytb_duration';
 
 const Body = () => {
-  return (
-    <div className='h-[640px] w-[940px] border-2 border-slate-800 flex flex-wrap' >
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-        <VideoContainer/>
-    </div>
-  )
+
+  const [videoContent,setVideoContent] = useState([]);
+
+  //[0].snippet.description
+
+  useEffect(()=>{
+    fetchData();
+  }, [])
+  
+  const fetchData = async () => {
+    const youtube_data = await fetch(youtube_api);
+    const json = await youtube_data.json();
+    setVideoContent(json?.items);
+    console.log(json?.items);
+  }
+
+
+  
+
+  if(videoContent.length === 0)
+   return;
+  else
+  {
+    return (
+      <div className='  flex flex-wrap' >
+          {
+            videoContent.map((videoDetail) => (
+              <VideoContainer 
+              videoThumnail = {videoDetail.snippet.thumbnails.standard.url}
+              videoDesc = {videoDetail.snippet.description}
+              channel = {videoDetail.snippet.channelTitle}
+              durationinSec = {youtubeDurationToUseful(videoDetail.contentDetails.duration)} 
+              views = {formatNumber(videoDetail.statistics.viewCount)}/>
+            ))
+          }
+          
+      </div>
+    )
+  }
+  
+  
 }
 
 export default Body

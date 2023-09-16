@@ -11,12 +11,13 @@ function App() {
         <Header/>
       </div>
 
-      <div className="w-full h-full p-2 mt-1 flex flex-wrap justify-between border-2 border-zinc-800">
-        <div>
+      <div className="w-full h-full p-2 mt-1 flex flex-wrap justify-between ">
+        {/* show this content only when we click on 3 lines button */}
+        {/* <div>
           <LeftBanner/> 
-        </div>
+        </div> */}
 
-        <div className="p-2 border-2 border-zinc-800" >
+        <div className="p-2 " >
           <VideoHeader/>
           <Body/>   
         </div>

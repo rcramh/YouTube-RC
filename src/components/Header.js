@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='w-full h-[70px]  flex justify-between flex-wrap items-center border-2 border-slate-900'>
+    <div className='w-full h-[70px]  flex justify-between flex-wrap items-center'>
 
         <div className="w-[260px] h-[60px] flex flex-wrap bg-white">
             <div className="w-[80px] h-[40px] ">
@@ -15,8 +15,8 @@ const Header = () => {
         </div>
 
         <div className=" items-center ">
-            <input className='w-[556px] h-10 p-1 border-2 border-slate-400' type="text" name="search" />
-            <button className='w-30 h-10 border-2 bg-lime-200'>
+            <input className='w-[556px] h-10 p-1 border-2 border-slate-400 rounded-l-full  ' placeholder="search" type="text" name="search" />
+            <button className='w-30 h-10 border-2 bg-lime-200 rounded-r-full'>
                 Submit
             </button>
         </div>
